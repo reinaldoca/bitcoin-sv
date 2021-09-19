@@ -66,6 +66,8 @@ Save the following code snippets and place them in a new directory kube.
 Change the rpcuser and rpcpass values in bitcoin-secrets.yml. They are base64 encoded. To base64 a string, just run echo -n SOMESTRING | base64.
 Run kubectl create -f /path/to/kube
 Profit!
+
+```
 bitcoin-deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -109,7 +111,9 @@ spec:
           gcePersistentDisk:
             pdName: bitcoin-data
             fsType: ext4
+
 bitcoin-secrets.yml
+
 apiVersion: v1
 kind: Secret
 metadata:
@@ -132,6 +136,8 @@ spec:
     service: bitcoin
   type: LoadBalancer
   externalTrafficPolicy: Local
+```
+
 Complete Example
 For a complete example of running a bitcoin node using Docker Compose, see the Docker Compose example.
 
